@@ -218,13 +218,32 @@ class NautilusTerminal(object):
         else:
             self._ui_vpanel.pack1(self._ui_terminal, resize=False, shrink=False)
 
-        TERMINAL_CHAR_HEIGHT = self._ui_terminal.get_char_height()
+        TERMINAL_CHAR_HEIGHT = self._ui_terminal.get_char_height() / 7.5
         TERMINAL_BORDER_WIDTH = 1
         TERMINAL_MIN_HEIGHT = self._settings.get_uint("min-terminal-height")
 
         self._ui_terminal.set_property(
                 "height-request",
-                TERMINAL_CHAR_HEIGHT * TERMINAL_MIN_HEIGHT + TERMINAL_BORDER_WIDTH * 2)
+                TERMINAL_CHAR_HEIGHT * TERMINAL_MIN_HEIGHT + TERMINAL_BORDER_WIDTH)
+
+        self._ui_terminal.set_colors(Gdk.RGBA(255/255.0, 255/255.0, 255/255.0, 1),
+                                     Gdk.RGBA(56/255.0, 12/255.0, 42/255.0, 1),
+                                     [Gdk.RGBA(0/255.0, 0/255.0, 0/255.0, 1),
+                                      Gdk.RGBA(204/255.0, 0/255.0, 0/255.0, 1),
+                                      Gdk.RGBA(78/255.0, 154/255.0, 6/255.0, 1),
+                                      Gdk.RGBA(196/255.0, 160/255.0, 0/255.0, 1),
+                                      Gdk.RGBA(52/255.0, 101/255.0, 164/255.0, 1),
+                                      Gdk.RGBA(117/255.0, 80/255.0, 123/255.0, 1),
+                                      Gdk.RGBA(6/255.0, 152/255.0, 154/255.0, 1),
+                                      Gdk.RGBA(211/255.0, 215/255.0, 207/255.0, 1),
+                                      Gdk.RGBA(85/255.0, 87/255.0, 83/255.0, 1),
+                                      Gdk.RGBA(239/255.0, 41/255.0, 41/255.0, 1),
+                                      Gdk.RGBA(138/255.0, 226/255.0, 52/255.0, 1),
+                                      Gdk.RGBA(252/255.0, 233/255.0, 79/255.0, 1),
+                                      Gdk.RGBA(114/255.0, 159/255.0, 207/255.0, 1),
+                                      Gdk.RGBA(173/255.0, 127/255.0, 168/255.0, 1),
+                                      Gdk.RGBA(52/255.0, 226/255.0, 226/255.0, 1),
+                                      Gdk.RGBA(238/255.0, 238/255.0, 236/255.0, 1)])
 
         # File drag & drop support
 
